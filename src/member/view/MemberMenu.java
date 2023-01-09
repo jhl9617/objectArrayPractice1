@@ -14,13 +14,6 @@ public class MemberMenu {
     }
 
     public void mainMenu(){
-
-
-
-
-
-
-
         do {
             System.out.println("***** 회원 관리 프로그램 *****\n" +
                     "\n" +
@@ -60,9 +53,10 @@ public class MemberMenu {
                 default:
             }
         }while (true);
+    }
+    public void searchMenu() {
 
     }
-    public void searchMenu() {}
     public void sortMenu() {}
     public void modifyMenu() {}
 

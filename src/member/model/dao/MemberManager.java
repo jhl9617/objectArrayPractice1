@@ -26,10 +26,10 @@ public class MemberManager {
             members[current].setName(scanner.next());
             System.out.print("password : ");
             members[current].setPassword(scanner.next());
+            System.out.print("emil : ");
+            members[current].setEmail(scanner.next());
             System.out.print("age : ");
             members[current].setAge(scanner.nextInt());
-
-
             current++;
         }
     }
@@ -49,7 +49,6 @@ public class MemberManager {
             switch (input){
                 case 1:{
                     System.out.println(searchMemberId());
-
                     break;
                 }
                 case 2:{
@@ -88,7 +87,6 @@ public class MemberManager {
         return -1;
     }
 
-
     public int searchMemberId() {
         System.out.println("검색할 아이디 : ");
         String id = scanner.next();
@@ -102,7 +100,7 @@ public class MemberManager {
 
     public void printAllMember() {
         for(int i = 0 ; i < current; i++){
-            System.out.println(members[i].memberInfo());
+            System.out.println(members[i]);
         }
     }
 

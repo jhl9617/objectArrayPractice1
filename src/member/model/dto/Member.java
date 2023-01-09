@@ -5,21 +5,20 @@ public class Member {
     private String id;
     private String name;
     private String password;
+    private String email;
     private char gender;
     private int age;
 
     public Member() {
     }
 
-    public Member(String id, String name, String password, char gender, int age) {
+    public Member(String id, String name, String password, String email, char gender, int age) {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.email = email;
         this.gender = gender;
         this.age = age;
-    }
-
-    public Member(String id, String name, String password, int age) {
     }
 
     public String getId() {
@@ -62,12 +61,20 @@ public class Member {
         this.age = age;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
-    public String memberInfo() {
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String toString() {
         return "Member{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 ", gender=" + gender +
                 ", age=" + age +
                 '}';
