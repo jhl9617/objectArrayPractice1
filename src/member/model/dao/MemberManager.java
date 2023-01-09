@@ -13,12 +13,8 @@ public class MemberManager {
     Member[] members = new Member[SIZE];
 
 
-
-
-
-
     public void memberInput() {
-        if(current < SIZE){
+        if (current < SIZE) {
             members[current] = new Member();
             System.out.print("id : ");
             members[current].setId(scanner.next());
@@ -46,30 +42,31 @@ public class MemberManager {
             System.out.print("메뉴 선택 :");
             int input = scanner.nextInt();
 
-            switch (input){
-                case 1:{
+            switch (input) {
+                case 1: {
                     System.out.println(searchMemberId());
                     break;
                 }
-                case 2:{
+                case 2: {
                     System.out.println(searchMemberName());
                     break;
                 }
-                case 3:{
+                case 3: {
                     System.out.println(searchMemberEmail());
                     break;
                 }
-                case 9:return;
+                case 9:
+                    return;
                 default:
             }
-        }while (true);
+        } while (true);
     }
 
     private int searchMemberEmail() {
         System.out.println("검색할 이메일 : ");
         String id = scanner.next();
-        for(int i = 0; i < current; i++){
-            if (Objects.equals(members[i].getId(), id)){
+        for (int i = 0; i < current; i++) {
+            if (Objects.equals(members[i].getId(), id)) {
                 return i;
             }
         }
@@ -79,8 +76,8 @@ public class MemberManager {
     private int searchMemberName() {
         System.out.println("검색할 이름 : ");
         String id = scanner.next();
-        for(int i = 0; i < current; i++){
-            if (Objects.equals(members[i].getId(), id)){
+        for (int i = 0; i < current; i++) {
+            if (Objects.equals(members[i].getId(), id)) {
                 return i;
             }
         }
@@ -90,8 +87,8 @@ public class MemberManager {
     public int searchMemberId() {
         System.out.println("검색할 아이디 : ");
         String id = scanner.next();
-        for(int i = 0; i < current; i++){
-            if (Objects.equals(members[i].getId(), id)){
+        for (int i = 0; i < current; i++) {
+            if (Objects.equals(members[i].getId(), id)) {
                 return i;
             }
         }
@@ -99,10 +96,76 @@ public class MemberManager {
     }
 
     public void printAllMember() {
-        for(int i = 0 ; i < current; i++){
+        for (int i = 0; i < current; i++) {
             System.out.println(members[i]);
         }
     }
 
+    public void sortIDAsc() {
+        for (int i = 0; i < current; i++) {
+            for (int j = i; i < current; i++) {
+                if (members[i].getId().compareTo(members[j].getId()) == 0) {
+                    Member tmp = members[i];
+                    members[i] = members[j];
+                    members[j] = tmp;
+                }
+            }
+        }
+
+    }
+
+    public void sortIDDes() {
+        for (int i = 0; i < current; i++) {
+            for (int j = i; i < current; i++) {
+                if (members[i].getId().compareTo(members[j].getId()) == 1) {
+                    Member tmp = members[i];
+                    members[i] = members[j];
+                    members[j] = tmp;
+                }
+            }
+        }
+    }
+
+    public void sortAgeAsc() {
+        for (int i = 0; i < current; i++) {
+            for (int j = i; i < current; i++) {
+                if (members[i].getAge() > members[j].getAge()) {
+                    Member tmp = members[i];
+                    members[i] = members[j];
+                    members[j] = tmp;
+                }
+            }
+        }
+    }
+
+    public void sortAgeDes() {
+        for (int i = 0; i < current; i++) {
+            for (int j = i; i < current; i++) {
+                if (members[i].getAge() < members[j].getAge()) {
+                    Member tmp = members[i];
+                    members[i] = members[j];
+                    members[j] = tmp;
+                }
+            }
+        }
+    }
+
+    public void sortGenderDes() {
+    }
+
+    public void deleteMember() {
+        System.out.print("삭제할 아이디 입력 : ");
+        String input = scanner.next();
+        for (int i = 0; i < current; i++) {
+            if (Objects.equals(input, members[i].getId())) {
+                for (int j = i; j < current; j++) {
+                    members[j] = members[j + 1];
+                }
+                members[current] = null;
+                current--;
+            }
+        }
+
+    }
 
 }

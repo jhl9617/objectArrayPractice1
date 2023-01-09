@@ -10,6 +10,7 @@ public class Member {
     private int age;
 
     public Member() {
+
     }
 
     public Member(String id, String name, String password, String email, char gender, int age) {

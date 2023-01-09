@@ -37,12 +37,15 @@ public class MemberMenu {
                     break;
                 }
                 case 3:{
+                    modifyMenu();
                     break;
                 }
                 case 4:{
+                    sortMenu();
                     break;
                 }
                 case 5:{
+                    memberManager.deleteMember();
                     break;
                 }
                 case 6:{
@@ -57,7 +60,40 @@ public class MemberMenu {
     public void searchMenu() {
 
     }
-    public void sortMenu() {}
+    public void sortMenu() {
+        System.out.print("***** 회원 정보 정렬 출력 메뉴 *****\n" +
+                "\t\n" +
+                "\t1. 아이디 오름차순 정렬 출력\n" +
+                "\t2. 아이디 내림차순 정렬 출력\n" +
+                "\t3. 나이 오름차순 정렬 출력\n" +
+                "\t4. 나이 내림차순 정렬 출력\n" +
+                "\t5. 성별 내림차순 정렬 출력(남여순)\n" +
+                "\t9. 이전 메뉴로 가기\n" +
+                "\t메뉴 선택 : ");
+        int inp = scanner.nextInt();
+        switch (inp) {
+            case 1:
+                memberManager.sortIDAsc();
+                break;
+            case 2:
+                memberManager.sortIDDes();
+                break;
+            case 3:
+                memberManager.sortAgeAsc();
+                break;
+            case 4:
+                memberManager.sortAgeDes();
+                break;
+            case 5:
+                memberManager.sortGenderDes();
+                break;
+            case 9:
+                return;
+            default:
+
+        }
+
+    }
     public void modifyMenu() {}
 
 }
