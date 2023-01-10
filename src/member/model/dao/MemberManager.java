@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class MemberManager {
     public static final int SIZE = 10;
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     public static int current = 0;
-    Member[] members = new Member[SIZE];
+    private Member[] members = new Member[SIZE];
 
 
     public void memberInput() {
@@ -26,6 +26,8 @@ public class MemberManager {
             members[current].setEmail(scanner.next());
             System.out.print("age : ");
             members[current].setAge(scanner.nextInt());
+            System.out.print("gender : ");
+            members[current].setGender(scanner.next().charAt(0));
             current++;
         }
     }
@@ -151,6 +153,15 @@ public class MemberManager {
     }
 
     public void sortGenderDes() {
+        for (int i = 0; i < current; i++) {
+            for (int j = i; i < current; i++) {
+                if (members[i].getGender() < members[j].getGender()) {
+                    Member tmp = members[i];
+                    members[i] = members[j];
+                    members[j] = tmp;
+                }
+            }
+        }
     }
 
     public void deleteMember() {
@@ -167,5 +178,23 @@ public class MemberManager {
         }
 
     }
+
+    public void setPassword(int index) {
+        System.out.println("새 비밀번호 : ");
+        members[index].setPassword(scanner.next());
+        System.out.println("비밀번호가 변경 되었습니다.");
+    }
+    public void setEmail(int index) {
+        System.out.println("새 이메일 : ");
+        members[index].setEmail(scanner.next());
+        System.out.println("이메일이 변경 되었습니다.");
+    }
+    public void setAge(int index) {
+        System.out.println("새 나이 : ");
+        members[index].setPassword(scanner.next());
+        System.out.println("나이가 변경 되었습니다.");
+    }
+
+
 
 }

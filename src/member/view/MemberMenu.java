@@ -94,6 +94,45 @@ public class MemberMenu {
         }
 
     }
-    public void modifyMenu() {}
+    public void modifyMenu() {
+
+        do {
+            int index = -1;
+            System.out.print("***** 회원 정보 수정 메뉴 *****\n" +
+                    "\n" +
+                    "\t1. 암호 변경\n" +
+                    "\t2. 이메일 변경\n" +
+                    "\t3. 나이 변경\n" +
+                    "\t9. 이전 메뉴로 가기\n" +
+                    "\t메뉴 선택 : ");
+
+            int input = scanner.nextInt();
+            switch (input){
+                case 1:
+                    index = memberManager.searchMemberId();
+                    if(index != -1){
+                        memberManager.setPassword(index);
+                    }
+                    break;
+                case 2:
+                    index = memberManager.searchMemberId();
+                    if(index != -1){
+                        memberManager.setPassword(index);
+                    }
+                    break;
+                case 3:
+                    index = memberManager.searchMemberId();
+                    if(index != -1){
+                        memberManager.setPassword(index);
+                    }
+                    break;
+                case 9:
+                    return;
+                default:
+            }
+        }while(true);
+
+
+    }
 
 }
