@@ -104,12 +104,13 @@ public class MemberManager {
     }
 
     public void sortIDAsc() {
-        for (int i = 0; i < current; i++) {
-            for (int j = i; i < current; i++) {
-                if (members[i].getId().compareTo(members[j].getId()) == 0) {
+        for (int i = 0; i < current-1; i++) {
+            for (int j = i+1; j < current; j++) {
+                if (members[i].getId().compareTo(members[j].getId()) >0) {
                     Member tmp = members[i];
                     members[i] = members[j];
                     members[j] = tmp;
+
                 }
             }
         }
@@ -117,8 +118,8 @@ public class MemberManager {
     }
 
     public void sortIDDes() {
-        for (int i = 0; i < current; i++) {
-            for (int j = i; i < current; i++) {
+        for (int i = 0; i < current-1; i++) {
+            for (int j = i+1; j < current; j++) {
                 if (members[i].getId().compareTo(members[j].getId()) == 1) {
                     Member tmp = members[i];
                     members[i] = members[j];
@@ -129,8 +130,8 @@ public class MemberManager {
     }
 
     public void sortAgeAsc() {
-        for (int i = 0; i < current; i++) {
-            for (int j = i; i < current; i++) {
+        for (int i = 0; i < current-1; i++) {
+            for (int j = i+1; j < current; j++) {
                 if (members[i].getAge() > members[j].getAge()) {
                     Member tmp = members[i];
                     members[i] = members[j];
@@ -141,8 +142,8 @@ public class MemberManager {
     }
 
     public void sortAgeDes() {
-        for (int i = 0; i < current; i++) {
-            for (int j = i; i < current; i++) {
+        for (int i = 0; i < current-1; i++) {
+            for (int j = i+1; j < current; j++) {
                 if (members[i].getAge() < members[j].getAge()) {
                     Member tmp = members[i];
                     members[i] = members[j];
@@ -153,9 +154,9 @@ public class MemberManager {
     }
 
     public void sortGenderDes() {
-        for (int i = 0; i < current; i++) {
-            for (int j = i; i < current; i++) {
-                if (members[i].getGender() < members[j].getGender()) {
+        for (int i = 0; i < current-1; i++) {
+            for (int j = i+1; j < current; j++) {
+                if (members[i].getGender() > members[j].getGender()) {
                     Member tmp = members[i];
                     members[i] = members[j];
                     members[j] = tmp;
@@ -193,6 +194,14 @@ public class MemberManager {
         System.out.println("새 나이 : ");
         members[index].setPassword(scanner.next());
         System.out.println("나이가 변경 되었습니다.");
+    }
+
+    public int sumAge() {
+        int sum =0;
+        for(int i = 0 ; i < current;i++){
+            sum += members[i].getAge();
+        }
+        return sum;
     }
 
 

@@ -33,7 +33,8 @@ public class MemberMenu {
                     break;
                 }
                 case 2:{
-                    memberManager.searchMenu();
+                    if(MemberManager.current > 0 )
+                        memberManager.searchMenu();
                     break;
                 }
                 case 3:{
@@ -41,7 +42,8 @@ public class MemberMenu {
                     break;
                 }
                 case 4:{
-                    sortMenu();
+                    if(MemberManager.current > 0 )
+                        sortMenu();
                     break;
                 }
                 case 5:{
